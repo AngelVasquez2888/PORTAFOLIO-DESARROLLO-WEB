@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico">
+</head>
+<body>
+    <!-- Profile Selection Screen -->
+    <div id="profile-overlay" class="profile-overlay">
+        <div class="profile-container">
+            <h1 class="profile-title">¿Quién está viendo ahora?</h1>
+            <div class="profile-grid" id="profile-grid">
+                <!-- Profiles will be injected here by JS -->
+            </div>
+            <button class="profile-manage-btn">Administrar perfiles</button>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="nav">
+        <div class="nav__left">
+            <img class="nav__logo" src="images/netflix_logo.svg" alt="Netflix Logo">
+            <ul class="nav__links">
+                <li><a href="#" class="active">Inicio</a></li>
+                <li><a href="#">Series TV</a></li>
+                <li><a href="#">Películas</a></li>
+                <li><a href="#">Novedades populares</a></li>
+                <li><a href="#">Mi lista</a></li>
+                <li><a href="#">Explorar por idiomas</a></li>
+            </ul>
+        </div>
+        <div class="nav__right">
+            <svg class="nav__icon" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <span>Niños</span>
+            <svg class="nav__icon" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+            <div class="nav__avatar" id="nav-avatar-container">
+                <img src="images/netflix_avatar.png" alt="User Avatar" id="current-user-img">
+                <span class="nav__caret">▼</span>
+                <div class="nav__dropdown" id="nav-dropdown">
+                    <ul id="other-profiles">
+                        <!-- Other profiles will be here -->
+                    </ul>
+                    <div class="dropdown__links">
+                        <a href="#">Administrar perfiles</a>
+                        <a href="#">Transferir perfil</a>
+                        <a href="#">Cuenta</a>
+                        <a href="#">Centro de ayuda</a>
+                    </div>
+                    <div class="dropdown__logout">
+                        <a href="#" id="logout-btn">Cerrar sesión en Netflix</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <header class="banner" id="banner">
+        <div class="banner__contents">
+            <h1 class="banner__title">Stranger Things</h1>
+            <div class="banner__buttons">
+                <button class="banner__button banner__button--play">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="black" d="M6 4l15 8-15 8z"/></svg>
+                    Reproducir
+                </button>
+                <button class="banner__button banner__button--info">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                    Más información
+                </button>
+            </div>
+            <h1 class="banner__description">
+                Cuando un niño desaparece, sus amigos, su familia y la policía se ven envueltos en una serie de eventos misteriosos al tratar de encontrarlo. Su ausencia coincide con el avistamiento de una criatura terrorífica y la aparición de una extraña niña.
+            </h1>
+        </div>
+        <div class="banner--fadeBottom"></div>
+    </header>
+
+    <!-- Content Rows -->
+    <main class="content">
+        <div class="row" data-category="both">
+            <h2 class="row__title">Tendencias ahora</h2>
+            <div class="row__posters" id="row-trending">
+                <img class="row__poster row__posterLarge" src="images/poster_stranger_things_v2.png" alt="Stranger Things">
+                <img class="row__poster row__posterLarge" src="images/poster_money_heist_v2.png" alt="Money Heist">
+                <img class="row__poster row__posterLarge" src="images/poster_the_boys_v2.png" alt="The Boys">
+                <img class="row__poster row__posterLarge" src="images/poster_dark_v2.png" alt="Dark">
+                <img class="row__poster row__posterLarge" src="images/poster_the_witcher_v2.png" alt="The Witcher">
+                <img class="row__poster row__posterLarge" src="https://upload.wikimedia.org/wikipedia/en/d/dd/Squid_Game_poster.jpg" alt="Squid Game">
+            </div>
+        </div>
+
+        <div class="row" data-category="series">
+            <h2 class="row__title">Originales de Netflix</h2>
+            <div class="row__posters">
+                <img class="row__poster" src="https://upload.wikimedia.org/wikipedia/en/d/df/Elite_season_1_poster.jpg" alt="Elite">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BMjhiMzgxZTctNDc1Ni00OTIxLTlhMTYtZTA3ZWFkODRkNmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg" alt="Breaking Bad">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BZmY0MzAyNTgtYjY3OC00YjA3LWFmOGYtZGVjODRmN2I0MjE5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="The Crown">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BZjYzZDgzMmYtZGIxNS00ZjhkLWJkODUtOTk3OWYyNTNlOTMyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Peaky Blinders">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BYTM2NjYyNjQtNjQwMi00MmExLTkxN2YtOTk0Y2MwN2U2YmRkXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg" alt="Black Mirror">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BZDA4YmUyN2EtN2U5OS00NWZkLWE3NWItNWZkZDA1MTEyMmUyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="Better Call Saul">
+            </div>
+        </div>
+
+        <div class="row" data-category="movies">
+            <h2 class="row__title">Películas de acción</h2>
+            <div class="row__posters">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_.jpg" alt="John Wick">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BZWYzOGEwNTgtNWU3NS00ZTQ0LThiMDUtMWMwZDJlOTFiY1k4XkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg" alt="Top Gun">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BMDk4YTM0YjItNDYwMi00YmU3LWEyOTEtMGYxMGJlY2JiYjg0XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Extraction">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BZmRjODgyMzktOWIxIt00NTE0LWIxNzUtODM1ZmQyZWMwMWUyXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg" alt="Red Notice">
+            </div>
+        </div>
+
+        <div class="row" data-category="series">
+            <h2 class="row__title">Series de Comedia</h2>
+            <div class="row__posters">
+                <img class="row__poster" src="https://image.tmdb.org/t/p/w500/w79pW9SFTAnf3W81N4V0ZShHOf6.jpg" alt="Friends">
+                <img class="row__poster" src="https://image.tmdb.org/t/p/w500/76v9pW9SFTAnf3W81N4V0ZShHOf6.jpg" alt="The Office">
+                <img class="row__poster" src="https://image.tmdb.org/t/p/w500/98v9pW9SFTAnf3W81N4V0ZShHOf6.jpg" alt="Brooklyn Nine-Nine">
+                <img class="row__poster" src="https://image.tmdb.org/t/p/w500/689u9SFTAnf3W81N4V0ZShHOf6.jpg" alt="Sex Education">
+            </div>
+        </div>
+
+        <div class="row" data-category="both">
+            <h2 class="row__title">Documentales</h2>
+            <div class="row__posters">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BMDAxN2VlM2UtYjg3NS00MWEwLTg3NjAtYjA0ZGE1OWU1NGRmXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg" alt="Our Planet">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BMTE0YWFmOTMtMDllNC00ZTAxLThjMGItYTQzYzQzYzQzYzQzXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg" alt="Drive to Survive">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BY2U1ZTU5Y2QtOTU3MS00N2NhLTliYWItNmY1NDY4ZGM0YmFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="The Last Dance">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BMjA5MjYwMzYxN15BMl5BanBnXkFtZTgwMDU2OTY4NTE@._V1_.jpg" alt="Chef's Table">
+            </div>
+        </div>
+
+        <div class="row" data-category="movies">
+            <h2 class="row__title">Películas de estreno</h2>
+            <div class="row__posters">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiY2JlYmI3MzE3XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Dune">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNjY1MTg4Mzg@._V1_.jpg" alt="The Batman">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BMGZlNTY1ZWUtYTMzNC00NjU5LWEyMDUtODAyN2RjMTQ2NzYwXkEyXkFqcGdeQXVyOTgxOTIzMTY@._V1_.jpg" alt="Spiderman">
+                <img class="row__poster" src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODUtY2UxYS00N2EzLTkwNzctNTFjYWU2OTYwNmFmXkEyXkFqcGdeQXVyMTAxNzQ1NzI@._V1_.jpg" alt="Avatar">
+            </div>
+        </div>
+
+        <div class="row" data-category="series">
+            <h2 class="row__title">Solo en Netflix</h2>
+            <div class="row__posters">
+                <img class="row__poster" src="images/poster_stranger_things_v2.png" alt="Stranger Things">
+                <img class="row__poster" src="images/poster_money_heist_v2.png" alt="Money Heist">
+                <img class="row__poster" src="https://upload.wikimedia.org/wikipedia/en/d/dd/Squid_Game_poster.jpg" alt="Squid Game">
+                <img class="row__poster" src="images/poster_dark_v2.png" alt="Dark">
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__social">
+            <!-- Icons would go here -->
+        </div>
+        <ul class="footer__links">
+            <li>Audio descriptivo</li>
+            <li>Centro de ayuda</li>
+            <li>Tarjetas de regalo</li>
+            <li>Prensa</li>
+            <li>Relaciones con inversionistas</li>
+            <li>Empleo</li>
+            <li>Términos de uso</li>
+            <li>Privacidad</li>
+            <li>Avisos legales</li>
+            <li>Preferencias de cookies</li>
+            <li>Información corporativa</li>
+            <li>Contáctanos</li>
+        </ul>
+        <div class="footer__language">
+            <div class="lang-selector">
+                <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                <select id="language-select">
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            © 1997-2024 Netflix, Inc.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
