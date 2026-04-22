@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | EcoNoticias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-decoration"></div>
+    <header>
+        <div class="container">
+            <h1>EcoNoticias</h1>
+            <h2>Queremos escucharte: Únete a la conversación</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="energia.html">Energía</a></li>
+                    <li><a href="conservacion.html">Conservación</a></li>
+                    <li><a href="tecnologia.html">Tecnología</a></li>
+                    <li><a href="contacto.html" class="active">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="noticias">
+            <article class="contact-card">
+                <h3>Contáctanos</h3>
+                <p>¿Tienes alguna noticia, sugerencia o simplemente quieres saludar? Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+                <form class="contact-form">
+                    <div class="input-group-stack">
+                        <label>Nombre Completo</label>
+                        <input type="text" placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div class="input-group-stack">
+                        <label>Correo Electrónico</label>
+                        <input type="email" placeholder="tu@email.com">
+                    </div>
+                    <div class="input-group-stack">
+                        <label>Asunto</label>
+                        <select>
+                            <option>Sugerencia de Noticia</option>
+                            <option>Colaboración</option>
+                            <option>Publicidad</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+                    <div class="input-group-stack">
+                        <label>Mensaje</label>
+                        <textarea placeholder="Escribe tu mensaje aquí..." rows="6"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
+            </article>
+        </section>
+
+        <aside>
+            <div class="aside-section">
+                <h3>Información</h3>
+                <p><strong>Redacción:</strong> calle Eco 123, Ciudad Sostenible</p>
+                <p><strong>Email:</strong> info@econoticias.com</p>
+                <p><strong>Tel:</strong> +123 456 7890</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 EcoNoticias. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
